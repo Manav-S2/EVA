@@ -1,11 +1,10 @@
-// Settings.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function Settings() {
   return (
     <View style={styles.container}>
-      <Text>Welcome to the Settings Page</Text>
+      <Text style={styles.text}>Welcome to the Settings Page</Text>
     </View>
   );
 }
@@ -15,6 +14,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff', // Background color for Settings page
+    backgroundColor: '#000', // Black background color
+  },
+  text: {
+    color: '#fff', // White text color
   },
 });
