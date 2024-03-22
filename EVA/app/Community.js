@@ -1,11 +1,13 @@
 // Community.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 export default function Community() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the Community Page</Text>
+      <Icon name="group" type="material-icons" size={50} />
+      <Text style={styles.title}>Community</Text>
     </View>
   );
 }
@@ -15,9 +17,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000', // Black background color
   },
-  text: {
-    color: '#fff', // White text color
+  title: {
+    fontSize: 20,
+    marginTop: 10,
   },
 });
