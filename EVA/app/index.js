@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native
 import { Icon } from 'react-native-elements';
 import Community from './Community';
 import Settings from './Settings';
+import { ThemeProvider } from '../assets/files/ThemeProvider';
 
 export default function Index({ navigation }) {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -54,8 +55,10 @@ export default function Index({ navigation }) {
   };
 
   return (
+    
     <View style={styles.container}>
       {renderPage()}
+     
       <View style={styles.bottomBar}>
         <TouchableOpacity style={styles.button} onPress={handleHomePress}>
           <Animated.View style={{ transform: [{ scale: homeButtonScale }] }}>
@@ -74,6 +77,7 @@ export default function Index({ navigation }) {
         </TouchableOpacity>
       </View>
     </View>
+    
   );
 }
 

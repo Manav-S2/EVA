@@ -1,12 +1,22 @@
-// Settings.js
-
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function Settings() {
+  const [mode, setMode] = useState('dark');
+
+  const toggleMode = () => {
+    setMode(mode === 'dark' ? 'light' : 'dark');
+  };
+
+  const containerStyle = mode === 'dark' ? styles.darkContainer : styles.lightContainer;
+  const textStyle = mode === 'dark' ? styles.darkText : styles.lightText;
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the Settings Page</Text>
+    <View style={[styles.container, containerStyle]}>
+      <Text style={textStyle}>Settings Page</Text>
+      <TouchableOpacity style={styles.modeButton} onPress={toggleMode}>
+        <Text style={styles.modeButtonText}>{mode === 'dark' ? 'Light Mode' : 'Dark Mode'}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -14,11 +24,32 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000', // Black background color
+    justifyContent: 'center',
   },
-  text: {
-    color: '#fff', // White text color
+  darkContainer: {
+    flex: 1,
+    backgroundColor: '#000', // Black background color for dark mode
+  },
+  lightContainer: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    backgroundColor: '#FFF', // White background color for light mode
+  },
+  darkText: {
+    color: '#FFF', // White text color for dark mode
+  },
+  lightText: {
+    color: '#000', // Black text color for light mode
+  },
+  modeButton: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#FFA000', // Yellow button color
+    borderRadius: 5,
+  },
+  modeButtonText: {
+    color: '#FFF', // White text color for button
   },
 });
