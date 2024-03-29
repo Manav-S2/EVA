@@ -13,7 +13,7 @@ export default function Settings() {
 
   return (
     <View style={[styles.container, containerStyle]}>
-      <Text style={textStyle}>Settings Page</Text>
+      {/* <Text style={textStyle}>Settings Page</Text> */}
       <TouchableOpacity style={styles.modeButton} onPress={toggleMode}>
         <Text style={styles.modeButtonText}>{mode === 'dark' ? 'Light Mode' : 'Dark Mode'}</Text>
       </TouchableOpacity>

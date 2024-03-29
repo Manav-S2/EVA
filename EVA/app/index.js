@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { SimpleLineIcons, Fontisto, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import Community from './Community';
 import Settings from './Settings';
-import { ThemeProvider } from '../assets/files/ThemeProvider';
-
+import Profile from './Profile.js';
+import Search from './Search.js';
+import {SimpleLineIcons, Fontisto, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 export default function Index({ navigation }) {
   const [currentPage, setCurrentPage] = useState('Home');
   const [homeButtonScale] = useState(new Animated.Value(1));
   const [settingsButtonScale] = useState(new Animated.Value(1));
-
+  const [profileButtonScale] = useState(new Animated.Value(1));
+  const [searchButtonScale] = useState(new Animated.Value(1));
   const navigateTo = (page) => {
     setCurrentPage(page);
   };
@@ -25,6 +26,19 @@ export default function Index({ navigation }) {
     setCurrentPage('Settings');
     animateButton(settingsButtonScale);
   };
+
+  const handleProfilePress =  () => {
+    setCurrentPage('Profile');
+    animateButton(profileButtonScale);
+  }; 
+
+  
+  const handleSearchPress =  () => {
+    setCurrentPage('Search');
+    animateButton(searchButtonScale);
+  }; 
+
+  
 
   const animateButton = (buttonScale) => {
     Animated.sequence([
@@ -47,39 +61,61 @@ export default function Index({ navigation }) {
         return <Community />;
       case 'Settings':
         return <Settings />;
+      case 'Profile':
+        return <Profile />;
+      case 'Search':
+        return <Search />;
       default:
         return (
           <View style={styles.container}>
-            <Text>Welcome to the Home Page</Text>
+            <Text style = {{color: '#fff'}}>Welcome to the Home Page</Text>
           </View>
         );
     }
   };
 
   return (
-    
     <View style={styles.container}>
+
       {renderPage()}
-     
       <View style={styles.bottomBar}>
+
         <TouchableOpacity style={styles.button} onPress={handleHomePress}>
           <Animated.View style={{ transform: [{ scale: homeButtonScale }] }}>
-            <Icon name="home" type="material-community" size={30} color="#FFA000" />
+            <SimpleLineIcons name="home" size={24} color="#FFA000" />
           </Animated.View>
           <Text style={styles.buttonText}>Home</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={handleSearchPress}>
+          <Animated.View style={{ transform: [{ scale: searchButtonScale }] }}>
+            <MaterialIcons name = "search" size = {24} color = "#FFA000" />
+          </Animated.View>
+          <Text style={styles.buttonText}>Search</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity style={styles.communityButton} onPress={() => navigateTo('Community')}>
           <Icon name="people" type="material-icons" size={30} color="#fff" />
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={handleSettingsPress}>
           <Animated.View style={{ transform: [{ scale: settingsButtonScale }] }}>
-            <Icon name="settings" type="material-icons" size={30} color="#FFA000" />
+            <MaterialIcons name = "settings" size = {24} color = "#FFA000" />
           </Animated.View>
           <Text style={styles.buttonText}>Settings</Text>
         </TouchableOpacity>
+
+        
+        <TouchableOpacity style={styles.button} onPress={handleProfilePress}>
+          <Animated.View style={{ transform: [{ scale: profileButtonScale }] }}>
+            <MaterialIcons name = "person-outline" size = {24} color = "#FFA000" />
+          </Animated.View>
+          <Text style={styles.buttonText}>Profile</Text>
+        </TouchableOpacity>
+
       </View>
-    </View>
     
+    </View>
   );
 }
 
@@ -90,6 +126,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000', // Black background color
   },
+
   bottomBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
