@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import { Icon } from 'react-native-elements';
+import { SimpleLineIcons, Fontisto, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import Community from './Community';
 import Settings from './Settings';
 import { ThemeProvider } from '../assets/files/ThemeProvider';
+
 
 export default function Index({ navigation }) {
   const [currentPage, setCurrentPage] = useState('Home');
