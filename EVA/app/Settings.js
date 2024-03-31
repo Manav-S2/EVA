@@ -1,84 +1,240 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+// import { COLORS, FONTS } from "../constants";
+import { MaterialIcons } from "@expo/vector-icons";
 
-export default function Settings() {
-  const [mode, setMode] = useState('dark');
-
-  const toggleMode = () => {
-    setMode(mode === 'dark' ? 'light' : 'dark');
+const Settings = ({ navigation }) => {
+  const navigateToEditProfile = () => {
+    navigation.navigate("EditProfile");
   };
 
-  const containerStyle = mode === 'dark' ? styles.darkContainer : styles.lightContainer;
-  const textStyle = mode === 'dark' ? styles.darkText : styles.lightText;
+  const navigateToSecurity = () => {
+    console.log("Security function");
+  };
 
- 
-    // <View style={[styles.container, containerStyle]}>
-    //   {/* <Text style={textStyle}>Settings Page</Text> */}
-    //   <TouchableOpacity style={styles.modeButton} onPress={toggleMode}>
-    //     <Text style={styles.modeButtonText}>{mode === 'dark' ? 'Light Mode' : 'Dark Mode'}</Text>
-    //   </TouchableOpacity>
-    // </View>
+  const navigateToNotifications = () => {
+    console.log("Notifications function");
+  };
 
-  const Settings = ({ navigation }) => {
-    return (
-      <SafeAreaView  style = {{flex: 1, backgroundColor: "#fff" }}>
-        <View style =  {{
+  const navigateToPrivacy = () => {
+    console.log("Privacy function");
+  };
+
+  const navigateToSubscription = () => {
+    console.log("Subscription function");
+  };
+
+  const navigateToSupport = () => {
+    console.log("Support function");
+  };
+
+  const navigateToTermsAndPolicies = () => {
+    console.log("Terms and Policies function");
+  };
+
+  const navigateToFreeSpace = () => {
+    console.log("Free Space function");
+  };
+
+  const navigateToDateSaver = () => {
+    console.log("Date saver");
+  };
+
+  const navigateToReportProblem = () => {
+    console.log("Report a problem");
+  };
+
+  const addAccount = () => {
+    console.log("Aadd account ");
+  };
+
+  const logout = () => {
+    console.log("Logout");
+  };
+
+  const accountItems = [
+    {
+      icon: "person-outline",
+      text: "Edit Profile",
+      action: navigateToEditProfile,
+    },
+    { icon: "security", text: "Security", action: navigateToSecurity },
+    {
+      icon: "notifications-none",
+      text: "Notifications",
+      action: navigateToNotifications,
+    },
+    { icon: "lock-outline", text: "Privacy", action: navigateToPrivacy },
+  ];
+
+  const supportItems = [
+    {
+      icon: "credit-card",
+      text: "My Subscription",
+      action: navigateToSubscription,
+    },
+    { icon: "help-outline", text: "Help & Support", action: navigateToSupport },
+    {
+      icon: "info-outline",
+      text: "Terms and Policies",
+      action: navigateToTermsAndPolicies,
+    },
+  ];
+
+  const cacheAndCellularItems = [
+    {
+      icon: "delete-outline",
+      text: "Free up space",
+      action: navigateToFreeSpace,
+    },
+    { icon: "save-alt", text: "Date Saver", action: navigateToDateSaver },
+  ];
+
+  const actionsItems = [
+    {
+      icon: "outlined-flag",
+      text: "Report a problem",
+      action: navigateToReportProblem,
+    },
+    { icon: "people-outline", text: "Add Account", action: addAccount },
+    { icon: "logout", text: "Log out", action: logout },
+  ];
+
+  const renderSettingsItem = ({ icon, text, action }) => (
+    <TouchableOpacity
+      onPress={action}
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        paddingVertical: 8,
+        paddingLeft: 12,
+        backgroundColor: '#CCC',
+      }}
+    >
+      <MaterialIcons name={icon} size={24} color="black" />
+      <Text
+        style={{
+          marginLeft: 36,
+          
+          fontWeight: 600,
+          fontSize: 16,
+        }}
+      >
+        {text}{" "}
+      </Text>
+    </TouchableOpacity>
+  );
+
+  return (
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: '#fff',
+        width: '100%',
+      }}
+    >
+      <View
+        style={{
           marginHorizontal: 12,
           flexDirection: "row",
           justifyContent: "center",
-        }}>
-          <TouchableOpacity
-            onPress= {() => navigation.goBack()}
-            style = {{
-              position: "absolute",
-              left: 0
-            }} >
-                <MaterialIcons 
-                  name = "keyboard-arrow-left"
-                  size = {24}
-                  color = '#fff'/>
-                  <Text> style = {{}} Settings</Text>
-          </TouchableOpacity>
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{
+            position: "absolute",
+            left: 0,
+          }}
+        >
+          <MaterialIcons
+            name="keyboard-arrow-left"
+            size={24}
+            color={"#000"}
+          />
+        </TouchableOpacity>
+
+        <Text style={{ }}>Settings</Text>
+      </View>
+
+      <ScrollView style={{ marginHorizontal: 12 }}>
+        {/* Account Settings */}
+        <View style={{ marginBottom: 12 }}>
+          <Text style={{  marginVertical: 10 }}>Account</Text>
+          <View
+            style={{
+              borderRadius: 12,
+              backgrounColor: "#ccc",
+            }}
+          >
+            {accountItems.map((item, index) => (
+              <React.Fragment key={index}>
+                {renderSettingsItem(item)}
+              </React.Fragment>
+            ))}
+          </View>
         </View>
 
-        
-      </SafeAreaView>
+        {/* Support and About settings */}
 
-    )
-  }
+        <View style={{ marginBottom: 12 }}>
+          <Text style={{  marginVertical: 10 }}>
+            Support & About{" "}
+          </Text>
+          <View
+            style={{
+              borderRadius: 12,
+              backgrounColor:'#ccc',
+            }}
+          >
+            {supportItems.map((item, index) => (
+              <React.Fragment key={index}>
+                {renderSettingsItem(item)}
+              </React.Fragment>
+            ))}
+          </View>
+        </View>
 
-  
-}
+        {/* Cache & Cellular */}
+        <View style={{ marginBottom: 12 }}>
+          <Text style={{  marginVertical: 10 }}>
+            Cache & Cellular{" "}
+          </Text>
+          <View
+            style={{
+              borderRadius: 12,
+              backgrounColor: '#CCC',
+            }}
+          >
+            {cacheAndCellularItems.map((item, index) => (
+              <React.Fragment key={index}>
+                {renderSettingsItem(item)}
+              </React.Fragment>
+            ))}
+          </View>
+        </View>
 
-const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
-  // darkContainer: {
-  //   flex: 1,
-  //   backgroundColor: '#000', // Black background color for dark mode
-  // },
-  // lightContainer: {
-  //   width: '100%',
-  //   height: '100%',
-  //   flex: 1,
-  //   backgroundColor: '#FFF', // White background color for light mode
-  // },
-  // darkText: {
-  //   color: '#FFF', // White text color for dark mode
-  // },
-  // lightText: {
-  //   color: '#000', // Black text color for light mode
-  // },
-  // modeButton: {
-  //   marginTop: 20,
-  //   padding: 10,
-  //   backgroundColor: '#FFA000', // Yellow button color
-  //   borderRadius: 5,
-  // },
-  // modeButtonText: {
-  //   color: '#FFF', // White text color for button
-  // },
-});
+        {/* Actions Settings */}
+
+        <View style={{ marginBottom: 12 }}>
+          <Text style={{ marginVertical: 10 }}>Actions</Text>
+          <View
+            style={{
+              borderRadius: 12,
+              backgrounColor: '#CCC',
+            }}
+          >
+            {actionsItems.map((item, index) => (
+              <React.Fragment key={index}>
+                {renderSettingsItem(item)}
+              </React.Fragment>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default Settings;

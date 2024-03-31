@@ -1,26 +1,34 @@
-// Community.js
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import Top from "../Components/Top";
+import Middle from "../Components/Middle";
+import Bottom from "../Components/Bottom";
+import Sizes from "../constants/Sizes";
 
 export default function Profile() {
   return (
-    <View style={styles.container}>
-      {/* <Icon name="group" type="material-icons" size={50} /> */}
-      <Text style={styles.title}>Profile</Text>
-    </View>
+    <>
+      <ImageBackground
+        style={styles.backgroundImage}
+        source={require("../assets/profileImages/bg.png")}
+        // blurRadius={1}
+      >
+        <View style={styles.container}>
+          <Top />
+          <Middle />
+          <Bottom/>
+        </View>
+      </ImageBackground>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  backgroundImage: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    resizeMode: "cover",
   },
-  title: {
-    color: "#fff",
-    fontSize: 20,
-    marginTop: 10,
+  container: {
+    marginHorizontal: Sizes.medium,
+    marginTop: Sizes.safe,
   },
 });

@@ -124,14 +124,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000', // Black background color
+    backgroundColor: '#fff', // Black background color
   },
 
   bottomBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#212121', // Dark grey background color
+    backgroundColor: '#fff', // Dark grey background color
     paddingVertical: 7,
     paddingHorizontal: 20,
     position: 'absolute',
