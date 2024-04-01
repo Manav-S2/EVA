@@ -10,70 +10,70 @@ posts = [
   
   {
     id: "1",
-    name: "Joe Mckay",
+    name: "Ever flèche",
     text: 
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
+    "🚗🔌 Exciting news! Introducing the Electra E1, our latest electric marvel. Sleek design, zero emissions, and cutting-edge tech. Get ready to redefine your drive. Pre-orders open now! 🌟 #ElectraE1 #ElectricRevolutionFeel free to customize it further to match your companys brand voice! 😊",
     timestamp: "156109273726",
-    avatar: require("../assets/communityImages/tempAvatar.jpg"),
-    image: require("../assets/communityImages/tempImage.jpg")
+    avatar: require("../assets/communityImages/tempAvatar1.png"),
+    image: require("../assets/communityImages/tempImage1.jpg")
     
     },
   
   {
     id: "2",
-    name: "Joe Mckay",
+    name: "Dr. Ava Reynolds",
     text: 
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
-    timestamp: "156109273726",
-    avatar: require("../assets/communityImages/tempAvatar.jpg"),
-    image: require("../assets/communityImages/tempImage.jpg")
+    '🚀🔬 Electra Flux Capacitor: Dr. Ava Reynolds, our brilliant EV specialist, has cracked the code! Our new invention harnesses quantum energy to boost electric vehicle efficiency by 30%. Say goodbye to range anxiety! 🌟 #ElectraInnovation #EVRevolutionFeel free to share this exciting news with the world! 🙌',
+    timestamp: "346109233726",
+    avatar: require("../assets/communityImages/tempAvatar2.jpg"),
+    image: require("../assets/communityImages/tempImage2.jpg")
     
     },
   
   {
     id: "3",
-    name: "Joe Mckay",
+    name: "Maxwell Chang",
     text: 
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
+    "📊🚗 EV Market Insights: Sales of electric cars have soared past 10 million in 2022! A whopping 14% of all new cars sold are now electric, up from 9% in 2021 and less than 5% in 2020. China remains the global frontrunner, accounting for around 60% of electric car sales. The future is electric! ⚡🌎 #EVRevolutionFeel free to share this electrifying news with your followers! 🙌",
     timestamp: "156109273726",
-    avatar: require("../assets/communityImages/tempAvatar.jpg"),
-    image: require("../assets/communityImages/tempImage.jpg")
+    avatar: require("../assets/communityImages/tempAvatar3.png"),
+    image: require("../assets/communityImages/tempImage3.jpg")
     
     }, 
 
   
   {
     id: "4",
-    name: "Joe Mckay",
+    name: "EvolveTech Research Team",
     text: 
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
+      "🔬🚗 Breaking News: Our research team has delved deep into the electric vehicle (EV) landscape! 🌟 We’ve applied for 48,000 patents globally, with over 30,000 already granted. Our 90,000-strong R&D team is expanding, fueling innovation in vehicle, battery, and manufacturing technologies. 🛠️🔋 Stay tuned for electrifying breakthroughs! ⚡ #EVInnovation #ResearchMilestones Feel free to share these exciting updates with your audience! 😊",
     timestamp: "156109273726",
-    avatar: require("../assets/communityImages/tempAvatar.jpg"),
-    image: require("../assets/communityImages/tempImage.jpg")
+    avatar: require("../assets/communityImages/tempAvatar4.jpg"),
+    image: require("../assets/communityImages/tempImage4.jpg")
       
   },
 
     
   {
     id: "5",
-    name: "Joe Mckay",
+    name: "OptiEvo Solutions",
     text: 
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
+      "🚗🔌 Exciting News! Optivo Solutions proudly unveils the Electra Nova, our latest electric masterpiece. With cutting-edge technology, sleek design, and zero emissions, it’s a game-changer for sustainable mobility. Pre-orders now open! 🌟 #ElectraNova #EVRevolution  ",
     timestamp: "156109273726",
-    avatar: require("../assets/communityImages/tempAvatar.jpg"),
-    image: require("../assets/communityImages/tempImage.jpg")
+    avatar: require("../assets/communityImages/tempAvatar5.png"),
+    image: require("../assets/communityImages/tempImage5.png")
     
     },
 
     
   {
     id: "6",
-    name: "Joe Mckay",
+    name: "Adaptive Evolution Labs",
     text: 
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
+      "The future is electric! ⚡️ Introducing our revolutionary new EV from Adaptive Evolution Labs. #AdaptiveEV #FutureofMobility",
     timestamp: "156109273726",
-    avatar: require("../assets/communityImages/tempAvatar.jpg"),
-    image: require("../assets/communityImages/tempImage.jpg")
+    avatar: require("../assets/communityImages/tempAvatar6.png"),
+    image: require("../assets/communityImages/tempImage6.png")
       
     },
 
@@ -85,7 +85,7 @@ export default class Community extends React.Component {
       <View style = {styles.feedItem}>
         <Image source = {post.avatar} style = {styles.avatar} />
         <View style = {{flex: 1}}>
-          <View styles = {{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+          <View style = {{ flexDirection: "row", justifyContent: "space-between", alignItems: "center"  }}>
             <View>
               <Text style = {styles.name}>{post.name}</Text>
               <Text style = {styles.timestamp}>{moment(post.timeStamp).fromNow()}</Text>
