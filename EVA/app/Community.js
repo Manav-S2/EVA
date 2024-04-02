@@ -123,13 +123,13 @@ export default class Community extends React.Component {
                     <Text style={styles.headerTitle}>Feed</Text>
                 </View>
 
-                <FlatList
-                    style={styles.feed}
-                    data={posts}
-                    renderItem={({ item }) => this.renderPost(item)}
-                    keyExtractor={item => item.id}
-                    showsVerticalScrollIndicator={false}
-                ></FlatList>
+                  <FlatList
+                      style={styles.feed}
+                      data={posts}
+                      renderItem={({ item }) => this.renderPost(item)}
+                      keyExtractor={item => item.id}
+                      showsVerticalScrollIndicator={false}
+                  ></FlatList>
             </View>
       </GestureHandlerRootView>
     );
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
   cons: {
     width: "100%",
     flex: 1,
+    paddingBottom: 75,
   },
   
   container: {

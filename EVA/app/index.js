@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Image, FlatList } from 'react-native';
 import { Icon } from 'react-native-elements';
+import Home from './Home.js';
 import Community from './Community';
 import Settings from './Settings';
 import Profile from './Profile.js';
@@ -38,8 +39,6 @@ export default function Index({ navigation }) {
     animateButton(searchButtonScale);
   }; 
 
-  
-
   const animateButton = (buttonScale) => {
     Animated.sequence([
       Animated.timing(buttonScale, {
@@ -66,18 +65,16 @@ export default function Index({ navigation }) {
       case 'Search':
         return <Search />;
       default:
-        return (
-          <View style={styles.container}>
-            <Text style = {{color: '#fff'}}>Welcome to the Home Page</Text>
-          </View>
-        );
+        return <Home />;
     }
   };
 
   return (
-    <View style={styles.container}>
 
+    <View style={styles.container}>
+   
       {renderPage()}
+
       <View style={styles.bottomBar}>
 
         <TouchableOpacity style={styles.button} onPress={handleHomePress}>
@@ -120,6 +117,7 @@ export default function Index({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -139,9 +137,11 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
+
   button: {
     alignItems: 'center',
   },
+
   communityButton: {
     backgroundColor: '#4CAF50', // Green button color
     borderRadius: 50,
@@ -151,8 +151,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 3, // Add elevation for shadow on Android
   },
+
   buttonText: {
     fontSize: 12,
     color: '#fff', // White text color
   },
+
+  
+
 });

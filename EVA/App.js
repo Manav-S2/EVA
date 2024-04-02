@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 // import Home from '.EVA/App.js';
 
 export default function App() {
-  return (
+  // return (
   //   <Stack.Navigator>
   //     <Stack.Screen name="Home" component={Index} />
   //     {/* Add other screens here */}
